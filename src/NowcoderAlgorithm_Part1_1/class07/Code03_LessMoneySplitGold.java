@@ -1,5 +1,6 @@
 package NowcoderAlgorithm_Part1_1.class07;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -21,7 +22,12 @@ public class Code03_LessMoneySplitGold {
         if (arr == null || arr.length < 2){
             return 0;
         }
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue();
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
         for (int i=0; i<arr.length; i++){
             priorityQueue.offer(arr[i]);
         }
