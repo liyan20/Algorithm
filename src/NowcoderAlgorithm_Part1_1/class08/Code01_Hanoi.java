@@ -1,5 +1,7 @@
 package NowcoderAlgorithm_Part1_1.class08;
 
+import java.util.Set;
+
 /**
  * @Author: xianz
  * @Date: 2020/6/20 11:59
@@ -21,10 +23,35 @@ package NowcoderAlgorithm_Part1_1.class08;
  * 3.把剩下的1-N-1个盘子从中间拿到右边 midToRight(n-1);
  * 然后，把盘子从中间拿到右边的midToRight(n-1)，根左到右一样的，先把n-2拿出来，这种。最终发现要写6个函数
  * 三个柱子来回换，互相调用。
+ *
+ * 汇总方法：
+ * 设定from, other, to三个变量，更新上面的三个步骤：
+ * 0.如果N==1，直接拿。这个也是递归的结束条件
+ * 1.将0-N-1个盘子从from拿到other
+ * 2.将第N个盘子从from拿到to
+ * 3.将0-N-1个盘子从other拿到to
+ * 其中，是根据输入数据的不同，在每次递归的时候对应的from,to,other都不一样
  * @Summary:
+ * 递归要不然用return，要不然是用if else，在void方法的时候
  * @TimeConsuming:
  */
 public class Code01_Hanoi {
+    public static void main(String[] args) {
+        System.out.println("a" + '1');
+        func(3, "左", "右", "中");
+    }
+
+    //整合想法
+    public static void func(int N, String from, String to, String other){
+        if (N == 1){
+            System.out.println("Move 1 from " + from + " to " + to);
+            return;
+        }
+        func(N - 1 , from, other, to);
+        System.out.println("Move " + N + " from " + from + " to " + to);
+        func(N - 1, other, to, from);
+    }
+
     //直观的想法
     public static void leftToRight(int n) {
         if(n== 1) {
