@@ -7,7 +7,7 @@ import java.util.List;
  * @Date: 2020/6/20 13:17
  * @Title&Description: 链表中倒数第k个结点
  * 题目描述
- * 输入一个链表，输出该链表中倒数第k个结点。
+ * 输入一个链表，输出该链表中倒数第k个结点。这个不是删除
  * @Analysis:
  * @Summary:
  * @TimeConsuming:
