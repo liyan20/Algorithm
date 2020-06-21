@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class Code46_Permutations_0621_2 {
     public static void main(String[] args) {
+        System.out.println(Integer.valueOf("11000000", 2));
         int[] nums = {1,2,3};
         List<List<Integer>> res = permute(nums);
         for (int i=0; i<res.size(); i++){
@@ -50,6 +51,7 @@ public class Code46_Permutations_0621_2 {
         if (numsList.isEmpty()){
             //这边具体为啥还要思考一下
             res.add(path);
+//            res.add(new ArrayList<>(path));
             return;
         }
         for (int i=0; i<numsList.size(); i++){
