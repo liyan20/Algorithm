@@ -1,5 +1,6 @@
 package Leetcode.Easy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,19 +24,36 @@ import java.util.List;
  * @Summary:
  * @TimeConsuming:
  */
-public class Code08_06_HanotaLcci {
+public class Code08_06_HanotaLcci_0621_1 {
+    public static void main(String[] args) {
+        List<Integer> A = new ArrayList<>();
+        List<Integer> B = new ArrayList<>();
+        List<Integer> C = new ArrayList<>();
+        A.add(2);
+        A.add(1);
+        A.add(0);
+        hanota(A, B, C);
+        System.out.println(A);
+        System.out.println(B);
+        System.out.println(C);
+    }
 
-    public void hanota(List<Integer> A, List<Integer> B, List<Integer> C){
-        process(A, C, B);
+    public static void hanota(List<Integer> A, List<Integer> B, List<Integer> C){
+        process(A, C, B, A.size());
     }
 
     //通用解法里面的把第几个放入哪个，这里面可以用取出list的最后一个数值来进行，之后是把最后一个数删掉，可以实现栈的作用
     //这里面是from,to,other分别代表A,C,B
-    public static void process(List<Integer> A, List<Integer> C, List<Integer> B){
-        if (A.size() == 1){
-
+    public static void process(List<Integer> A, List<Integer> C, List<Integer> B, int N){
+        if (N == 1){
+            C.add(A.get(A.size() - 1));
+            A.remove(A.size() - 1);
+            return;
         }
-
+        process(A, B, C, N - 1);
+        C.add(A.get(A.size() - 1));
+        A.remove(A.size() - 1);
+        process(B, C, A, N - 1);
     }
 
 }

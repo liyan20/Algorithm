@@ -42,7 +42,7 @@ public class Code03_PrintAllPermutations {
 
     //这个是递归的函数
     //对于全排列来说，str里面的每一个字符都可以当成是开头，中间，第三个，第四个，，，结尾等等
-    //set里面的每一个字符都可以当成当前字符，但是用过之后就不能用了
+    //set里面的每一个字符都可以当成当前字符，但是用过之后就不能用了，这边其实可以用一个boolean数组来表示是否用过
     public static void process(List<Character> set, String path, Set<String> list){
         //base case，即递归的返回条件，最后写
         //当set空了，就说明字符选完了，可以放入list了
