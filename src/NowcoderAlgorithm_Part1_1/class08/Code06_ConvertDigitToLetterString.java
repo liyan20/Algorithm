@@ -24,7 +24,7 @@ import java.util.Map;
  */
 public class Code06_ConvertDigitToLetterString {
     public static void main(String[] args) {
-        String str = "111";
+        String str = "11134";
         System.out.println(number(str));
     }
 
