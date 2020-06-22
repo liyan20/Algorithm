@@ -16,26 +16,25 @@ package Leetcode.Easy;
  * 调用 isBadVersion(4) -> true
  * 所以，4 是第一个错误的版本。
  * @Analysis:
+ * 直接搜索不行。会超时
+ * 换用二分查找
  * @Summary:
  * @TimeConsuming:
  */
 public class Code278_FirstBadVersion_0622_2 {
     public static void main(String[] args) {
-        System.out.println(firstBadVersion1(2));
+        System.out.println(firstBadVersion(3));
     }
 
     public static boolean isBadVersion(int version){
-        if (version <= 1){
+        if (version <= 3){
             return false;
         }else {
             return true;
         }
     }
 
-    public static int firstBadVersion1(int n) {
-        if (isBadVersion(1)){
-            return 1;
-        }
+    public static int firstBadVersion(int n) {
         return process(1, n);
     }
 
@@ -43,12 +42,11 @@ public class Code278_FirstBadVersion_0622_2 {
         if (L == R){
             return L;
         }
-        int mid = L + (R - L) >> 1;
+        int mid = L + ((R - L) >> 1);
         if (isBadVersion(mid)){
             return process(L, mid);
         }else {
             return process(mid + 1, R);
         }
     }
-
 }
