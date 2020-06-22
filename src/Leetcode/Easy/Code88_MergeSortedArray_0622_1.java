@@ -21,7 +21,7 @@ package Leetcode.Easy;
  * @Summary:
  * @TimeConsuming:
  */
-public class Code88_MergeSortedArray {
+public class Code88_MergeSortedArray_0622_1 {
     public static void main(String[] args) {
         int[] nums1 = {4,5,6,0,0,0};
         int m = 3;

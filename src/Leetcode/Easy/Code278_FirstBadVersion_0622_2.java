@@ -19,7 +19,7 @@ package Leetcode.Easy;
  * @Summary:
  * @TimeConsuming:
  */
-public class Code278_FirstBadVersion {
+public class Code278_FirstBadVersion_0622_2 {
     public static void main(String[] args) {
         System.out.println(firstBadVersion1(2));
     }
