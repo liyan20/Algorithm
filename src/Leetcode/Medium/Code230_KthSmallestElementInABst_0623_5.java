@@ -18,7 +18,7 @@ import java.util.List;
  * @Summary:
  * @TimeConsuming:
  */
-public class Code230_KthSmallestElementInABst {
+public class Code230_KthSmallestElementInABst_0623_5 {
     public static class TreeNode {
         int val;
         TreeNode left;
