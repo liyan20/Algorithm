@@ -24,35 +24,41 @@ public class Code01_RobotWalk_Cache_V2 {
         //递归函数的参数里面只有cur和rest是变量，另外的N和P是常量，所以主要的参数是(cur, rest)
         //cur的范围是1-N，rest的范围是0-K，所以可以使用数组来替换hashmap。并且两个变量是有范围的
         int[][] cache = new int[N+1][K+1];
+        //先把数组初始化为-1
+        for (int i=0; i<cache.length; i++){
+            for (int j=0; j<cache[0].length; j++){
+                cache[i][j] = -1;
+            }
+        }
         return walk2(N, start, K, P, cache);
     }
 
 
 
     public static int walk2(int N, int cur, int rest, int P, int[][] cache){
-        String key = String.valueOf(cur) + "_" + String.valueOf(rest);
-        if (cache.containsKey(key)){
-            return cache.get(key);
+        //数组的值不是-1，代表已经算过了，直接返回
+        if (cache[cur][rest] != -1){
+            return cache[cur][rest];
         }
         int res = 0;
         if (rest == 0){
             res = cur == P ? 1 : 0;
-            cache.put(key, res);
+            cache[cur][rest] = res;
             return res;
         }
 
         if (cur == 1){
             res = walk2(N, 2, rest - 1, P, cache);
-            cache.put(key, res);
+            cache[cur][rest] = res;
             return res;
         }
         if (cur == N){
             res = walk2(N, N - 1, rest - 1, P, cache);
-            cache.put(key, res);
+            cache[cur][rest] = res;
             return res;
         }
         res = walk2(N, cur + 1, rest - 1, P, cache) + walk2(N, cur - 1, rest - 1, P, cache);
-        cache.put(key, res);
+        cache[cur][rest] = res;
         return res;
     }
 }

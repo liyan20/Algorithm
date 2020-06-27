@@ -11,10 +11,23 @@ package Test;
 import java.util.*;
 public class test0603 {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("1");
-        sb.insert(1, "2");
-        System.out.println(sb.toString());
+        int i = 2;
+        int j = 10;
+        i = i ^ j;
+        j = i ^ j;
+        i = i ^ j;
+//        swap(a,b);
+        System.out.println(i);
+        System.out.println(j);
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("1");
+//        sb.insert(1, "2");
+//        System.out.println(sb.toString());
+    }
+    public static void swap( int i, int j){
+        i = i ^ j;
+        j = i ^ j;
+        i = i ^ j;
     }
 
     public static char findMostChar(String str){

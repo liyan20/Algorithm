@@ -46,12 +46,12 @@ public class Code06_QuickSort {
 
 
 
-    //这个之前的写法有一个问题，如果是两个数是相等的，那么就直接为0了。加个判断
+    //这个之前的写法有一个问题，如果是两个数的下标是相等的，那么就直接为0了。加个判断
     public static void swap(int[] arr, int i, int j){
-        if(arr[i] != arr[j]){
+//        if(arr[i] != arr[j]){
             arr[i] = arr[i] ^ arr[j];
             arr[j] = arr[i] ^ arr[j];
             arr[i] = arr[i] ^ arr[j];
-        }
+//        }
     }
 }
