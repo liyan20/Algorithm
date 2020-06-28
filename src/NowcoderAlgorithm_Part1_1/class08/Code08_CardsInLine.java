@@ -11,7 +11,7 @@ package NowcoderAlgorithm_Part1_1.class08;
  */
 public class Code08_CardsInLine {
     public static void main(String[] args) {
-        int[] arr = {1,100,2};
+        int[] arr = {1,100,2,5,6,7,2,45,547,235,34};
         System.out.println(win1(arr));
     }
 
