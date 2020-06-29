@@ -18,11 +18,58 @@ package Leetcode.Medium;
  * 输出: false
  * 解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。
  * @Analysis:
+ * 先写递归吧
  * @Summary:
  * @TimeConsuming:
  */
 public class Code55_JumpGame {
-//    public boolean canJump(int[] nums) {
-//
-//    }
+    public static void main(String[] args) {
+        int[] nums = {2,3,1,1,4};
+        System.out.println(canJump(nums));
+    }
+
+    public static boolean canJump(int[] nums) {
+        if (nums == null || nums.length < 1){
+            return false;
+        }
+        if (nums.length == 1){
+            return true;
+        }
+        int[][] cache = new int[nums.length][nums.length];
+        for (int i=0; i<cache.length; i++){
+            for (int j=0; j<cache[0].length; j++){
+                cache[i][j] = -1;
+            }
+        }
+        cache[nums.length-1][0] = 1;
+        return process(nums, 0, nums.length - 1, cache) > 0;
+    }
+
+    public static int process(int[] arr, int index, int rest, int[][] cache){
+        //这是越界的情况
+        if (index >= arr.length || rest < 0){
+            return 0;
+        }
+        //这是base case
+        if (arr[index] >= rest){
+            return 1;
+        }
+//        if (index == arr.length - 1){
+//            return rest == 0 ? 1 : 0;
+//        }
+        //这是当前数为0的情况，防止死循环导致栈溢出
+        if (arr[index] == 0 && rest != 0){
+            return 0;
+        }
+        if (cache[index][rest] != -1){
+            return cache[index][rest];
+        }
+        int res = 0;
+        //当前的可以走arr[index]步，这是个枚举的问题
+        for (int i=1; i<= arr[index]; i++){
+            res += process(arr, index + i, rest - i, cache);
+        }
+        cache[index][rest] = res;
+        return res;
+    }
 }
