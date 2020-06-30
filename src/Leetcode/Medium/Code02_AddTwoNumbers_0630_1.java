@@ -56,6 +56,7 @@ public class Code02_AddTwoNumbers_0630_1 {
             l1 = l1.next;
             l2 = l2.next;
         }
+        //这一步是考虑一个数搞完了另一个还没完的情况
         while (l1 != null){
             int curNum = l1.val + isCarry;
             if (curNum > 9){
@@ -80,6 +81,7 @@ public class Code02_AddTwoNumbers_0630_1 {
             curNode = curNode.next;
             l2 = l2.next;
         }
+        //如果还有进位，+1
         if (isCarry == 1){
             curNode.next = new ListNode(1);
         }
