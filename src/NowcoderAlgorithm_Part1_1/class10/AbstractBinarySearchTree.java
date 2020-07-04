@@ -1,5 +1,8 @@
 package NowcoderAlgorithm_Part1_1.class10;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * @Author: xianz
  * @Date: 2020/7/4 10:35
@@ -56,6 +59,88 @@ public class AbstractBinarySearchTree {
             insertParentNode.right = new Node(val);
         }
         return root;
+    }
+
+    public static Node delete(Node root, int key){
+        Node deleteNode = search(root, key);
+        if (deleteNode == null){
+            return null;
+        }
+        Node parent = getParentNode(root, deleteNode);
+        if (deleteNode.left == null && deleteNode.right == null){
+            root = transplant(root, deleteNode, null);
+        }else if (deleteNode.left != null && deleteNode.right == null){
+            root = transplant(root, deleteNode, deleteNode.left);
+        }else if (deleteNode.left == null && deleteNode.right != null){
+            root = transplant(root, deleteNode, deleteNode.right);
+        }else {
+            //这种情况是左右子树都有。我们是选择右子树的最左节点，即为要删除结点的直接后继
+            Node successorNode = getMinNode(deleteNode.right);
+            //将这个后继的右子树和后继交换，即让后继的父节点连到后继的右子树上面。后继是没有左子树的
+            root = transplant(root, successorNode, successorNode.right);
+            //目前的后继是单独的结点的，将后继替换要删除的结点。
+            root = transplant(root, deleteNode, successorNode);
+            successorNode.right = deleteNode.right;
+            successorNode.left = deleteNode.left;
+        }
+        return root;
+    }
+
+    //transplant(a, b)，用b去替换a的环境，断连a之后返回新转换的b
+    //这个函数主要是修正结点的父节点和当前节点的left或者right关系
+    public static Node transplant(Node root, Node nodeToReplace, Node newNode){
+        if (root == null || nodeToReplace == null){
+            return null;
+        }
+        Node parent = getParentNode(root, nodeToReplace);
+        //父节点是null，说明要替换的root结点
+        //仔细想想，这个函数是直接把b结点给替换掉a结点，要求是b的整个子树替换掉整个a的子树
+        //要做的就是将a的父节点的孩子由本来的a变成b就行。
+        //如果是root结点，假设有一个结点叫god，god.child是root，那么我们要替换掉root，就直接让
+        //god.child = b就行，即为root = b;
+        if (parent == null){
+            root = newNode;
+        }else if (nodeToReplace == parent.left){
+            parent.left = newNode;
+        }else if (nodeToReplace == parent.right){
+            parent.right = newNode;
+        }
+        return root;
+    }
+
+    public static Node getMinNode(Node node){
+        if (node == null){
+            return null;
+        }
+        while (node.left != null){
+            node = node.left;
+        }
+        return node;
+    }
+
+    //查找指定结点的父节点
+    public static Node getParentNode(Node root, Node node){
+        //如果要找的是根节点，父节点就是null
+        if (root == null || node == null || node.val == root.val){
+            return null;
+        }
+        Node parent = null;
+        //使用二叉树的前序遍历查找父节点
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.offerFirst(root);
+        while (!stack.isEmpty()){
+            Node cur = stack.pollFirst();
+            if ((cur.left != null && cur.left == node) || (cur.right != null && cur.right == node)){
+                parent = cur;
+                break;
+            }
+            if (node.val < cur.val){
+                stack.offerFirst(cur.left);
+            }else {
+                stack.offerFirst(cur.right);
+            }
+        }
+        return parent;
     }
 
     public static class Node {
