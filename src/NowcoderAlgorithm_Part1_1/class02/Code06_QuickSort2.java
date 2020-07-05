@@ -15,6 +15,9 @@ public class Code06_QuickSort2 {
     public static void main(String[] args) {
         int[] arr = {6,1,5,7,4,5,586,345,1,2,4,36,754,4,3,3};
         quickSort(arr, 0, arr.length-1);
+        for (int temp : arr){
+            System.out.println(temp);
+        }
     }
     public static void quickSort(int[] arr, int L, int R){
         if(L >= R){
@@ -42,6 +45,7 @@ public class Code06_QuickSort2 {
         }
         swap(arr, more, R);
         return new int[] {less+1, more};    //这里面因为more的位置和最后一个数交换了，所以就不需要是more-1了
+        //这边返回的是等于p的起点和终点。上面交换的那个可以交换也可以直接在全部上面partition，讲道理我觉得差不多
     }
 
     public static void swap(int[] arr, int i, int j){

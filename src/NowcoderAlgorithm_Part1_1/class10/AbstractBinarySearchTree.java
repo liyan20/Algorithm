@@ -79,6 +79,7 @@ public class AbstractBinarySearchTree {
             //将这个后继的右子树和后继交换，即让后继的父节点连到后继的右子树上面。后继是没有左子树的
             root = transplant(root, successorNode, successorNode.right);
             //目前的后继是单独的结点的，将后继替换要删除的结点。
+            //而目前的后继就自己一个结点，所以替换了deleteNode之后要脸上删除节点的左右关系
             root = transplant(root, deleteNode, successorNode);
             successorNode.right = deleteNode.right;
             successorNode.left = deleteNode.left;
