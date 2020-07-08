@@ -18,7 +18,7 @@ import java.util.Deque;
  * @Summary:
  * @TimeConsuming:
  */
-public class Code426_ConvertBSTtoSortedDoublyLinkedlist_0704_1 {
+public class Code426_BSTtoSortedDoublyLinkedlist_0704_1 {
     public static class Node {
         public int val;
         public Node left;
@@ -43,7 +43,7 @@ public class Code426_ConvertBSTtoSortedDoublyLinkedlist_0704_1 {
         System.out.println(treeToDoublyList(root).val);
     }
 
-
+    //我们就是搞一个中序遍历，在遍历的时候定义生成的链表的指针，连上前后就行
     public static Node treeToDoublyList(Node root){
         if (root == null){
             return null;

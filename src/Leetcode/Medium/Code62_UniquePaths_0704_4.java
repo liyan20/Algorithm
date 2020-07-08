@@ -23,7 +23,7 @@ package Leetcode.Medium;
  * @Summary:
  * @TimeConsuming:
  */
-public class Code32_UniquePaths_0704_4 {
+public class Code62_UniquePaths_0704_4 {
     public static void main(String[] args) {
         int m = 19, n = 13;
         System.out.println(uniquePaths_DP(m, n));
