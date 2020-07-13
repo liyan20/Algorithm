@@ -1,5 +1,8 @@
 package Leetcode.Medium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author: xianz
  * @Date: 2020/7/12 16:30
@@ -22,22 +25,52 @@ package Leetcode.Medium;
  */
 public class Code279_PerfectSquares_0712_3 {
     public static void main(String[] args) {
-        double a = Math.sqrt(9);
-        System.out.println(a == (int)a);
+        System.out.println(numSquares(20));
     }
     public static int numSquares(int n) {
         if (n <= 0){
             return 0;
         }
-
+        List<Integer> numsList = squareNumsList(n);
+        int[] cache = new int[n+1];
+        for (int i=0; i<cache.length; i++){
+            cache[i] = -1;
+        }
+        return process(n, numsList, cache);
     }
 
-    //递归函数。
-    public static int process(int rest){
-
+    //递归函数。这个函数是还剩下rest的数的时候，需要多少个完全平方数
+    public static int process(int rest, List<Integer> numsList, int[] cache){
+        //越界情况
+        if (rest < 0){
+            return -1;
+        }
+        if (cache[rest] != -1){
+            return cache[rest];
+        }
+        //base case。剩下的数是0了，当然不需要数了
+        if (rest == 0){
+            cache[rest] = 0;
+            return 0;
+        }
+        int min = Integer.MAX_VALUE;
+        for (int i=0; i<numsList.size(); i++){
+            int res = process(rest - numsList.get(i), numsList, cache) + 1;
+            if (res > 0){
+                min = Math.min(min, res);
+            }
+        }
+        cache[rest] = min;
+        return min;
     }
 
-    public static int[] squareNumsList(int n){
-        for (int i=n; n>=0; )
+    public static List<Integer> squareNumsList(int n){
+        List<Integer> list = new ArrayList<>();
+        for (int i=n; i>0; i--){
+            if (Math.sqrt(i) == (int)Math.sqrt(i)){
+                list.add(i);
+            }
+        }
+        return list;
     }
 }

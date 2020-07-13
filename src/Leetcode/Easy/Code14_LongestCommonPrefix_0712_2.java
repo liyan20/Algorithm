@@ -21,10 +21,10 @@ import java.util.Collections;
  * @TimeConsuming:
  */
 public class Code14_LongestCommonPrefix_0712_2 {
-    public String longestCommonPrefix(String[] strs){
-        if (strs == null || strs.length < 1){
-            return null;
-        }
-        Collections.sort(strs);
-    }
+//    public String longestCommonPrefix(String[] strs){
+//        if (strs == null || strs.length < 1){
+//            return null;
+//        }
+//        Collections.sort(strs);
+//    }
 }
