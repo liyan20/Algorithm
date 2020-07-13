@@ -17,8 +17,7 @@ import java.util.PriorityQueue;
  * @Analysis:
  * 使用大根堆，先放进去K个数，然后下面每一个数，比堆顶大的不管，小的放进去
  * 这样最后里面就是最小的K个。
- * 直接用小根堆吧，找到倒数第nums.length - k个最大的数，要放入nums.length - k + 1个数
- * 搞反了，问的就是第k个最大的，就应该用小根堆
+ * 搞反了，问的是第k个最大的，就应该用小根堆，比堆顶大的放进去，小的不管
  * @Summary:
  * @TimeConsuming:
  */
@@ -41,6 +40,7 @@ public class Code215_KthLargestElementInArray_0702_4 {
             priorityQueue.offer(nums[i]);
         }
         //大于堆顶的放进去，小于的不放。等于号的话，应该不重要吧
+        //大于的放进去，里面剩下的就是k个最大的数。第一个就是K个里面最小的，就是整体第K大的
         for (int i=k; i<nums.length; i++){
             if (nums[i] > priorityQueue.peek()){
                 priorityQueue.poll();
