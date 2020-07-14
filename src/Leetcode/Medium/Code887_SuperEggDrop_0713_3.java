@@ -25,11 +25,22 @@ package Leetcode.Medium;
  * 输入：K = 3, N = 14
  * 输出：4
  * @Analysis:
+ * 这里面有一个F代表第几层会碎是固定的，但是我们不知道。我们要保证最坏情况下扔鸡蛋的次数最少。
+ * 即这个F有可能是1-N的任一层，而不管是哪层，我们都要保证扔的次数不超过我们要求的那个结果。
+ * 比如一个鸡蛋两层，如果F是1，那么第一层扔了就碎了，就能得到F是1。如果F是2，那么第一层没碎，那肯定就是F是2，
+ * 所以最多需要仍2次，就能得到这个F。这个意思
+ * 如果没碎，那么就是楼层+1，鸡蛋-1的子问题+1，后面1代表尝试次数。
+ * 如果碎了，那就是楼层-1，鸡蛋-1的子问题+1。
  * @Summary:
  * @TimeConsuming:
  */
 public class Code887_SuperEggDrop_0713_3 {
     public int superEggDrop(int K, int N) {
-
+        return 0;
     }
+
+//    //递归函数。
+//    public static int process(){
+//
+//    }
 }

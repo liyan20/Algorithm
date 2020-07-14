@@ -23,9 +23,10 @@ import java.util.List;
  * 写了半天，感觉这边不能用递归，必须直接使用自下而上的动态规划
  * 因为递归的话没办法填完整张表的感觉啊
  * @Summary:
+ * 需要自己设置一张表，在纸上画一下。
  * @TimeConsuming:
  */
-public class Code5LongestPalindromicSubstring_0713_1 {
+public class Code05_LongestPalindromicSubstring_0713_1 {
     public static void main(String[] args) {
         String s = "babad";
         System.out.println(longestPalindrome(s));
@@ -48,6 +49,8 @@ public class Code5LongestPalindromicSubstring_0713_1 {
             }
         }
         //因为是每个地方和左下角的结果相关，所以应该是按照对角线的顺序来填表
+        //这时候的循环最外层变量需要是每次i和j相差的数，从0开始递增
+        //里面循环是i和j，i和j相差是level，因为每次的对角线都需要i从0开始进行。
         int begin = 0, maxLength = 0;
         for (int level=0; level < s.length(); level++){
             for (int i = 0, j = i + level; i<cache.length && j<cache[0].length; i++, j++){
