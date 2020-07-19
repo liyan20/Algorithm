@@ -26,7 +26,6 @@ public class Code64_MaxInWindows_0716_1 {
         }
         Deque<Integer> queue = new ArrayDeque<>();
         //i代表滑动窗口的新的R
-        int R = 0;
         for (int i=0; i<num.length; i++){
             //R的操作
             while (!queue.isEmpty() && num[queue.peekLast()] <= num[i]){
