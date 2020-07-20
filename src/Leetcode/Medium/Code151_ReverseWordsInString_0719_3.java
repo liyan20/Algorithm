@@ -27,8 +27,23 @@ package Leetcode.Medium;
  */
 public class Code151_ReverseWordsInString_0719_3 {
     public static void main(String[] args) {
-        String s = "  hello world!    ";
-        String[] list = s.split(" ");
-        System.out.println(s);
+        String s = "hello     world!    ";
+        String[] list = s.split("s+");
+        System.out.println(new Code151_ReverseWordsInString_0719_3().reverseWords(s));
+    }
+
+    public String reverseWords(String s) {
+        if (s == null || s.length() < 1){
+            return "";
+        }
+        String[] strArr = s.trim().split("\\s+");
+        StringBuilder sb = new StringBuilder();
+        for (int i=strArr.length-1; i>=0; i--){
+            sb.append(strArr[i]);
+            if (i > 0){
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
     }
 }
