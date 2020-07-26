@@ -12,6 +12,7 @@ import Thread_study01.Web12306;
  * @Summary:
  * @TimeConsuming:
  */
+
 public class BlockedSleep01 implements Runnable {
     private int ticketNums = 99;
     @Override

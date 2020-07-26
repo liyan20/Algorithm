@@ -51,6 +51,9 @@ public class Code04_IsBST {
         int min = x.val;
         int max = x.val;
         boolean isBST = false;
+        //这里面的操作是更新整个树的最大值和最小值。
+        //因为有可能整个树是左子树加上当前结点，那么就是最大值更新，
+        // 也可能是右子树加上当前结点，那么就是最大值更新，总之都要更新就完事了
         if (leftInfo != null){
             min = Math.min(min, leftInfo.min);
             max = Math.max(max, leftInfo.max);

@@ -86,7 +86,7 @@ public class Code545_BoundaryOfBinaryTree_0715_1 {
         if (root.left == null && root.right == null){
             return;
         }
-        //先序遍历二叉树，是叶子节点就保存。注意入栈是先右后左。
+        //先序遍历二叉树，正好是左右的顺序。是叶子节点就保存。注意入栈是先右后左。
         Deque<TreeNode> stack = new ArrayDeque<>();
         stack.offerFirst(root);
         while (!stack.isEmpty()){

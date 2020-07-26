@@ -35,7 +35,7 @@ public class GraphGenerator {
             if (!graph.nodes.containsKey(to)){
                 graph.nodes.put(to, new Node(to));
             }
-            //下面把两个结点，还有边给拿出来，完善结点和边本身的信息
+            //下面把两个结点，还有边给新建出来，完善结点和边本身的信息
             Node fromNode = graph.nodes.get(from);
             Node toNode = graph.nodes.get(to);
             Edge newEdge = new Edge(weight, fromNode, toNode);  //边是新建的，边的信息已经完成

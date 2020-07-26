@@ -31,20 +31,18 @@ public class Code300_LongestIncreasingSubsequence {
         }
         int[] dp = new int[nums.length];
         Arrays.fill(dp, 1);
-        int res = 0;
-        //每一个i是指的以i结尾的必须包括i的位置的串。
-        //针对每一个i，要有看前面所有的nums[i]>nums[j]的情况，找到最大的那个然后+1。这个是dp[i]的结果
-        //表明了第i个数比之前哪些大，这样就在前面的基础上面加上1就行了。最终输出结果是以所有的i结尾的最大值就行。
-        for (int i=1; i<nums.length; i++){
-            int max = 0;
+        int max = 1;
+        //dp转移方程：dp[i]是以第i位结尾的最大值。要看前面的数值，如果第i位数比前面的大，就在其上面+1
+        //说明子串包括i，因为是大于前面的所以是递增子串，之后就是找到最大的就行。
+        //比如[2,5,3,7]里面2是1，就是自己，5是2代表25，3是2代表23，7就可以选择是27或者237,选个大的就行
+        for (int i=0; i<dp.length; i++){
             for (int j=0; j<i; j++){
-                if (nums[i] >= nums[j]){
-                    max = Math.max(max, dp[j]);
+                if (nums[i] > nums[j]){
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            dp[i] = max + 1;
-            res = Math.max(res, dp[i]);
+            max = Math.max(max, dp[i]);
         }
-        return res;
+        return max;
     }
 }
