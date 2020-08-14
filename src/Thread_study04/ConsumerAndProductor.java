@@ -9,7 +9,7 @@ package Thread_study04;
  * @Summary:
  * @TimeConsuming:
  */
-public class CoTest01 {
+public class ConsumerAndProductor {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
         sb.append(1);

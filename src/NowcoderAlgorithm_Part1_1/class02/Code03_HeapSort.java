@@ -26,6 +26,9 @@ public class Code03_HeapSort {
     public static void main(String[] args) {
         int[] arr = {6,1,5,7,5,586,345,36,75};
         heapSort(arr);
+        for (int i : arr){
+            System.out.print(i+"-");
+        }
     }
 
     public static void heapSort(int[] arr){
@@ -64,12 +67,14 @@ public class Code03_HeapSort {
 
     //将第i的位置的结点调整位置，使其保持大根堆
     //与左右孩子结点比较，小于的话就交换
+    // 某个数在index位置，能否往下移动
     public static void heapify(int[] arr, int index, int heapSize){
         int left = index * 2 + 1;
         while (left < heapSize){
             //largest是两个孩子的最大值的下标
             int largest = left+1 < heapSize && arr[left+1] > arr[left] ? left+1 : left;
-            largest = largest > index ? largest : index;
+            //父亲和较大孩子谁大给largest
+            largest = arr[largest] > arr[index] ? largest : index;
             if (largest == index){
                 break;
             }
@@ -80,7 +85,7 @@ public class Code03_HeapSort {
     }
 
     public static void swap(int[] arr, int i, int j){
-        if (arr[i] != arr[j]){
+        if (i != j){
             arr[i] = arr[i] ^ arr[j];
             arr[j] = arr[i] ^ arr[j];
             arr[i] = arr[i] ^ arr[j];

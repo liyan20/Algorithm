@@ -53,7 +53,7 @@ public class Code199_TreeRightSideView_0726_2 {
         return res;
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

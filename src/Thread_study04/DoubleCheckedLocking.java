@@ -1,5 +1,8 @@
 package Thread_study04;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Author: xianz
  * @Date: 2020/7/16 11:35
@@ -52,6 +55,10 @@ public class DoubleCheckedLocking {
     }
 
     public static void main(String[] args) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+
+
         Thread t = new Thread(()->{
             System.out.println(DoubleCheckedLocking.getInstance1(500));
         });

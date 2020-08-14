@@ -15,6 +15,7 @@ import java.util.Objects;
 public class MapTest {
     public static void main(String[] args) {
         Map<Integer, Integer> map = new HashMap<>();
+
     }
 }
 

@@ -40,7 +40,7 @@ package Leetcode_EasyAlgorithm.LinkedList;
  *     }
  * }
  */
-public class Question03_0513_1 {
+public class ReverseList {
     public static void main(String[] args) {
 
     }
@@ -66,5 +66,13 @@ public class Question03_0513_1 {
         head.next.next = head;
         head.next = null;
         return p;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

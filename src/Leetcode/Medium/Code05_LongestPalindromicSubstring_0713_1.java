@@ -39,12 +39,12 @@ public class Code05_LongestPalindromicSubstring_0713_1 {
         if (s.length() == 0){
             return "";
         }
-        boolean[][] cache = new boolean[s.length()][s.length()];
+        boolean[][] dp = new boolean[s.length()][s.length()];
         //初始化。对角线是true，其他的为false。默认是false
-        for (int i=0; i<cache.length; i++){
-            for (int j=0; j<cache[0].length; j++){
+        for (int i=0; i<dp.length; i++){
+            for (int j=0; j<dp[0].length; j++){
                 if (i != j){
-                    cache[i][j] = false;
+                    dp[i][j] = false;
                 }
             }
         }
@@ -53,21 +53,21 @@ public class Code05_LongestPalindromicSubstring_0713_1 {
         //里面循环是i和j，i和j相差是level，因为每次的对角线都需要i从0开始进行。
         int begin = 0, maxLength = 0;
         for (int level=0; level < s.length(); level++){
-            for (int i = 0, j = i + level; i<cache.length && j<cache[0].length; i++, j++){
+            for (int i = 0, j = i + level; i<dp.length && j<dp[0].length; i++, j++){
                 //一个数的情况，是回文
                 if (i == j){
-                    cache[i][j] = true;
+                    dp[i][j] = true;
                 }
                 //两个数的情况，如果相同就是true
                 if ((j - i == 1) && s.charAt(i) == s.charAt(j)){
-                    cache[i][j] = true;
+                    dp[i][j] = true;
                 }
                 //超过两位字符，就和子串有关系
                 if (j - i  > 1){
-                    cache[i][j] = (s.charAt(i) == s.charAt(j)) && cache[i+1][j-1];
+                    dp[i][j] = (s.charAt(i) == s.charAt(j)) && dp[i+1][j-1];
                 }
                 //如果是回文，记录一下长度和起始的，保存下来
-                if (cache[i][j]){
+                if (dp[i][j]){
                     if (j - i + 1 > maxLength){
                         maxLength = j - i + 1;
                         begin = i;

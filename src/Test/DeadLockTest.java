@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @Author: xianz
  * @Date: 2020/7/20 15:40
@@ -10,6 +12,7 @@ package Test;
  */
 public class DeadLockTest {
     public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(10);
         new Thread(new DeadLock(1)).start();
         new Thread(new DeadLock(0)).start();
     }

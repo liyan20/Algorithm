@@ -22,7 +22,7 @@ package Leetcode_EasyAlgorithm.LinkedList;
  *     }
  * }
  */
-public class Question04_0513_2 {
+public class MergeTwoLists {
     public static void main(String[] args) {
 
     }
@@ -41,5 +41,13 @@ public class Question04_0513_2 {
         }
         temp.next = l1!=null ? l1 : l2;
         return dummy.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

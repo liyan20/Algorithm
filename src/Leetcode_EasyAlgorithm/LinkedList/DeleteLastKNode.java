@@ -30,7 +30,7 @@ package Leetcode_EasyAlgorithm.LinkedList;
  *     }
  * }
  */
-public class Question02_0512_2 {
+public class DeleteLastKNode {
     public static void main(String[] args) {
 
     }
@@ -69,5 +69,13 @@ public class Question02_0512_2 {
         }
         node2.next = node2.next.next;
         return dummy.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

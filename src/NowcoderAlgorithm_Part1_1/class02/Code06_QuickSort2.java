@@ -13,17 +13,17 @@ import java.util.Comparator;
  */
 public class Code06_QuickSort2 {
     public static void main(String[] args) {
-        int[] arr = {6,1,5,7,4,5,586,345,1,2,4,36,754,4,3,3};
+        int[] arr = {10,5,14,8,16,3,20};
         quickSort(arr, 0, arr.length-1);
         for (int temp : arr){
-            System.out.println(temp);
+            System.out.print(temp + "-");
         }
     }
     public static void quickSort(int[] arr, int L, int R){
         if(L >= R){
             return;
         }
-        swap(arr, L+(int)(Math.random()*(R-L+1)), R);
+//        swap(arr, L+(int)(Math.random()*(R-L+1)), R);
         int[] p = partition(arr, L, R);
         quickSort(arr, L, p[0]-1);
         quickSort(arr, p[1]+1, R);
@@ -31,8 +31,9 @@ public class Code06_QuickSort2 {
     //这个partition还是对最后一个数作为p进行处理的，处理的是0到倒数第二个数
     public static int[] partition(int[] arr, int L, int R){
         int p = arr[R];
+//        int p = 10;
         int less = L - 1;
-        int more = R;    //所以这里面more是R而不是R+1，因为是处理不包括R的数组范围
+        int more = R + 1;    //所以这里面more是R而不是R+1，因为是处理不包括R的数组范围
         int index = L;
         while (index < more){
             if (arr[index] < p){
@@ -43,8 +44,8 @@ public class Code06_QuickSort2 {
                 index++;
             }
         }
-        swap(arr, more, R);
-        return new int[] {less+1, more};    //这里面因为more的位置和最后一个数交换了，所以就不需要是more-1了
+//        swap(arr, more, R);
+        return new int[] {less+1, more-1};    //这里面因为more的位置和最后一个数交换了，所以就不需要是more-1了
         //这边返回的是等于p的起点和终点。上面交换的那个可以交换也可以直接在全部上面partition，讲道理我觉得差不多
     }
 

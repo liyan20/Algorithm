@@ -12,6 +12,8 @@ import java.util.*;
  */
 public class MapIter {
     public static void main(String[] args) {
+        MapIter mapIter = new MapIter();
+
         Map<String, String> map = new LinkedHashMap<>();
         Set<Integer> set = new TreeSet<>();
         for (int t : set){

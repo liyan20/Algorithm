@@ -18,7 +18,7 @@ import java.util.Map;
  * @ThinkingSteps:
  * @TimeConsuming:
  */
-public class Question06_0514_2 {
+public class HasCycle {
     public static void main(String[] args) {
 
     }
@@ -61,5 +61,13 @@ public class Question06_0514_2 {
             }
         }
         return flag;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

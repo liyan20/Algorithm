@@ -48,7 +48,7 @@ import java.util.List;
  *     }
  * }
  */
-public class Question05_0514_1 {
+public class IsPalindrome {
     public static void main(String[] args) {
 
     }
@@ -120,5 +120,13 @@ public class Question05_0514_1 {
             }
         }
         return flag;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }
