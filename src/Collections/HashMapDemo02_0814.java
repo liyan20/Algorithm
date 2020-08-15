@@ -1,7 +1,9 @@
 package Collections;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author: xianz
@@ -18,5 +20,7 @@ public class HashMapDemo02_0814 {
 
     public static void solution(){
         Map<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
+        ConcurrentHashMap<Integer, Integer> concurrentHashMap = new ConcurrentHashMap<>();
     }
 }

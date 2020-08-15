@@ -24,7 +24,7 @@ package NowcoderAlgorithm_Part1_1.class02;
  */
 public class Code03_HeapSort {
     public static void main(String[] args) {
-        int[] arr = {6,1,5,7,5,586,345,36,75};
+        int[] arr = {5,2,3,1};
         heapSort(arr);
         for (int i : arr){
             System.out.print(i+"-");
@@ -36,15 +36,15 @@ public class Code03_HeapSort {
             return;
         }
         //把数组一个个数变成大根堆
-        for(int i=0;i<arr.length;i++){
-            heapInsert(arr, i);
-        }
+//        for(int i=0;i<arr.length;i++){
+//            heapInsert(arr, i);
+//        }
 
         //或者用这个方法，如果直接给的是一整个数组，就可以直接从堆的底层开始，一个个进行heapify，就可以得到大根堆
         //时间复杂度是O（n）
-//        for(int i=arr.length-1; i>=0; i--){
-//            heapify(arr, i, arr.length);
-//        }
+        for(int i=arr.length-1; i>=0; i--){
+            heapify(arr, i, arr.length);
+        }
 
         //heapSize是数组长度
         int heapSize = arr.length;
