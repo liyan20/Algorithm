@@ -26,19 +26,19 @@ public class HeapSort {
     }
 
     public static void heapSort(int[] arr){
-
         //这个heapify的方法必须是从堆的结束位置开始建立的
         int heapSize = arr.length;
         for (int i=arr.length-1; i>=0; i--){
             heapify(arr, i, heapSize);
         }
-        //小根堆的第一个数是最小的，将其与heapsize的最后一位交换，heapSize-1是的最后一位不在堆里面了
+        //小根堆的第一个数是最小的，将其与heapsize的最后一位交换，heapSize-1是指的最后一位不在堆里面了
         swap(arr, 0, --heapSize);
         while (heapSize > 0){
             //之后是继续，交换之后heapifu一下，将交换过来的那个放到应该的位置上面，然后接着交换第一位的数。
             heapify(arr, 0, heapSize);
             swap(arr, 0, --heapSize);
         }
+        //这边是因为写的是小根堆，其实是逆序的
         for (int i=0; i<arr.length/2; i++){
             swap(arr, i, arr.length-1-i);
         }

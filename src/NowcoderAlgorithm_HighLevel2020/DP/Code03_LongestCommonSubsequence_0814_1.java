@@ -64,4 +64,30 @@ public class Code03_LongestCommonSubsequence_0814_1 {
         }
         return max;
     }
+
+    /**
+     * 这个是在获取到最长公共子序列长度之后，如何获得这个最长公共子序列是什么。
+     * 我们需要从dp表里面获取到，因为我们的答案是dp表的最后一个，所以倒着来。
+     * 先是看dp[i][j]的值，看其和上面的和左边的是否相等，相等的话说明其是来自于上面和左边的，当然
+     * 如果i和j位置相等的话，也可能是来自于i-1,j-1的值+1的情况。如果这三种情况都有可能，那说明可能就不止一种
+     * 最长公共子序列，那么随便选一个就行。如果上面和左边不和i-j位置一样，那么这时候肯定是i位置与j位置相等，
+     * 这时候就是倒序的最长公共子序列必定有i位置或者j位置的数，然后跳转到左上角i-1和j-1，接着判断就行了。
+     * 直到越界。
+     *
+     * @param dp
+     * @return
+     */
+    public static String getSubSequence(int[][] dp){
+        return "";
+    }
+
+    /**
+     * 获取所有的最长公共子序列。
+     * 既然既可以往左走，也可以往上走，那么就深度优先遍历就行了。
+     * @param dp
+     * @return
+     */
+    public static String getAllSubSequence(int[][] dp){
+        return "";
+    }
 }

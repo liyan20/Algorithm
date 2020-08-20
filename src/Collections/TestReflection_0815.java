@@ -1,5 +1,6 @@
 package Collections;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.locks.Lock;
@@ -25,6 +26,15 @@ public class TestReflection_0815 {
         System.out.println(cla.getName());
         for (Field field : cla.getFields()){
             System.out.println(field);
+        }
+
+//        s.getClass().getClassLoader().loadClass(s.getClass().toString());
+        try {
+            Student s2 = s.getClass().newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
 
 

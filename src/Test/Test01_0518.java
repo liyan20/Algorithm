@@ -9,8 +9,14 @@ package Test;
  * @TimeConsuming:
  */
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+
 public class Test01_0518 {
     public static void main(String[] args) {
+        ThreadPoolExecutor threadPoolExecutor;
+//        ExecutorService
         System.out.println(rightStr("picture", 4));
 
 

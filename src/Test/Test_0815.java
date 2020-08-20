@@ -2,6 +2,8 @@ package Test;
 
 import java.util.ArrayList;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @Author: xianz
@@ -11,11 +13,33 @@ import java.util.*;
  * @Summary:
  * @TimeConsuming:
  */
-public class Test_0815 {
-    public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        Collections.sort(list, (Integer o1, Integer o2) ->{
-            return o1 - o2;
-        });
+import java.util.*;
+public class Test_0815{
+    public static Deque<Integer> stackPush = new ArrayDeque<>();
+    public static Deque<Integer> stackPoll = new ArrayDeque<>();
+
+    public static void add(int x){
+        pushToPoll();
+        stackPush.offerFirst(x);
+        pushToPoll();
     }
+
+    public static int poll(){
+        pushToPoll();
+        return stackPoll.pollFirst();
+    }
+
+    public static int peek(){
+        pushToPoll();
+        return stackPoll.peekFirst();
+    }
+
+    public static void pushToPoll(){
+        if(stackPoll.isEmpty()){
+            while(!stackPush.isEmpty()){
+                stackPoll.offerFirst(stackPush.pollFirst());
+            }
+        }
+    }
+
 }
