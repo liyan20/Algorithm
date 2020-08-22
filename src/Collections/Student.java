@@ -28,6 +28,16 @@ public class Student {
                 Objects.equals(name, student.name);
     }
 
+    /**
+     * Objects.equals(name, student.name)的方法的具体实现
+     * @param a
+     * @param b
+     * @return
+     */
+    public static boolean equals(Object a, Object b) {
+        return (a == b) || (a != null && a.equals(b));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, name);

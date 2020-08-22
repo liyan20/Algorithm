@@ -3,6 +3,7 @@ package Collections;
 import org.w3c.dom.traversal.NodeFilter;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author: xianz
@@ -16,6 +17,15 @@ public class HashMapDemo01 {
     public static Map<Student, Integer> map;
     public static int a = 10;
     public static void main(String[] args) {
+        Hashtable hashtable;
+        HashMap hashMap;
+        ConcurrentHashMap concurrentHashMap;
+        Collections.synchronizedMap(map);
+        LinkedHashMap linkedHashMap;
+
+        HashSet hashSet;
+
+        if ("a".equals("b"));
         HashMapDemo01 hashMapDemo01 = new HashMapDemo01();
 
         hashMapDemo01.testHashMap();

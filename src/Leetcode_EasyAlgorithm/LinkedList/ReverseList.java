@@ -58,6 +58,7 @@ public class ReverseList {
         }
         return pre;
     }
+
     public static ListNode reverseList2(ListNode head){
         if(head == null || head.next == null){
             return head;
