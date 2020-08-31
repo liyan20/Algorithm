@@ -24,6 +24,11 @@ public class HashMapDemo01 {
         LinkedHashMap linkedHashMap;
 
         HashSet hashSet;
+        Map<Integer, Integer> hashMap1 = new HashMap<>();
+        for (Map.Entry<Integer, Integer> entry : hashMap1.entrySet()){
+
+        }
+
 
         if ("a".equals("b"));
         HashMapDemo01 hashMapDemo01 = new HashMapDemo01();

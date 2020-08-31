@@ -11,14 +11,21 @@ package Test;
 import java.util.*;
 public class test0603 {
     public static void main(String[] args) {
-        int i = 2;
-        int j = 10;
-        i = i ^ j;
-        j = i ^ j;
-        i = i ^ j;
-//        swap(a,b);
-        System.out.println(i);
-        System.out.println(j);
+
+        float f = 14.45f;
+        int i = 20;
+        System.out.println("re" + f + i);
+
+
+
+//        int i = 2;
+//        int j = 10;
+//        i = i ^ j;
+//        j = i ^ j;
+//        i = i ^ j;
+////        swap(a,b);
+//        System.out.println(i);
+//        System.out.println(j);
 //        StringBuilder sb = new StringBuilder();
 //        sb.append("1");
 //        sb.insert(1, "2");

@@ -18,6 +18,31 @@ public class Code02_BubbleSort {
         }
     }
 
+    /**
+     * 优化版冒泡排序
+     * @param arr
+     */
+    public static void bubbleSortPart2(int[] arr){
+        if(arr == null || arr.length < 2){
+            return;
+        }
+
+        //标志位判断法。在第一重循环里面。每次判断一下是否更新过swap的标志位flag
+        //如果flag还是false，说明这轮循环并没有交换，就直接退出
+        for(int j = arr.length-1; j >0; j--){
+            boolean flag = false;
+            for(int i=0; i<j; i++){
+                if(arr[i] > arr[i+1]){
+                    swap(arr, i, i+1);
+                    flag = true;
+                }
+            }
+            if(!flag){
+                break;
+            }
+        }
+    }
+
     public static void bubbleSort(int[] arr){
         if(arr==null || arr.length<2){
             return;

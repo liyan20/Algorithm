@@ -36,6 +36,4 @@ public class Test_0709_1 {
         }
     }
 }
-class A{
-    public static int id;
-}
+

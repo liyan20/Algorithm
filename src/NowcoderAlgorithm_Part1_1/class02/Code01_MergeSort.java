@@ -33,6 +33,7 @@ public class Code01_MergeSort {
 
     public static void merge(int[] arr, int l, int mid, int r){
         //这里最后要把temp给传到原数组里面，避免每次递归都新建并且保存一个
+        //左数组是left-mid，右数组是mid+1--right
         int[] temp = new int[r-l+1];
         int p1 = l;
         int p2 = mid+1;
