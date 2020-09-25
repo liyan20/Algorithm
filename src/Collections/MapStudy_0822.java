@@ -21,6 +21,15 @@ public class MapStudy_0822 {
 
 
     public static void main(String[] args) {
+//        LinkedList;
+//        LinkedHashSet;
+//        LinkedHashMap;
+        Vector vector;
+//        SecurityException;
+//        NullPointerException;
+//        ClassNotFoundException;
+
+
 
         Hashtable hashtable;
 

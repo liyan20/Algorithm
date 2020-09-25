@@ -1,5 +1,6 @@
 package Collections;
 
+import java.io.*;
 import java.util.Objects;
 
 /**
@@ -10,16 +11,42 @@ import java.util.Objects;
  * @Summary:
  * @TimeConsuming:
  */
-public class Student implements Cloneable {
+public class Student implements Cloneable,Serializable  {
 
     private String name;
     private int age;
     private Major major;
 
-    //重写Object类的clone方法
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    //重写Object类的clone方法。并且要在里面赋值major属性的一个拷贝
+//    @Override
+//    protected Object clone() throws CloneNotSupportedException {
+//        Student student = (Student)super.clone();
+//        student.major = (Major)major.clone();
+//        return student;
+//    }
+
+//    @Override
+
+    public Student clone() {
+        try {
+            // 将对象本身序列化到字节流
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream =
+                    new ObjectOutputStream( byteArrayOutputStream );
+            objectOutputStream.writeObject( this );
+
+            // 再将字节流通过反序列化方式得到对象副本
+            ObjectInputStream objectInputStream =
+                    new ObjectInputStream( new ByteArrayInputStream( byteArrayOutputStream.toByteArray() ) );
+            return (Student) objectInputStream.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public Student(String name, int age, Major major) {

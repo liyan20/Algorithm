@@ -13,4 +13,5 @@ public class Son extends Father {
 
     public void print1(){
     }
+
 }

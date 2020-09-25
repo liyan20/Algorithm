@@ -4,6 +4,9 @@ import org.w3c.dom.traversal.NodeFilter;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author: xianz
@@ -16,12 +19,31 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HashMapDemo01 {
     public static Map<Student, Integer> map;
     public static int a = 10;
+
+    Lock lock = new ReentrantLock();
+    Condition condition = lock.newCondition();
+    public synchronized void put(){
+        lock.lock();
+        try {
+            condition.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
     public static void main(String[] args) {
+
+
+
         Hashtable hashtable;
         HashMap hashMap;
+
         ConcurrentHashMap concurrentHashMap;
         Collections.synchronizedMap(map);
         LinkedHashMap linkedHashMap;
+        ArrayDeque arrayDeque;
+        ArrayList arrayList;
 
         HashSet hashSet;
         Map<Integer, Integer> hashMap1 = new HashMap<>();

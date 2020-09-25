@@ -11,4 +11,6 @@ package Collections;
 public class Father {
 
     private int id;
+
+    public static void f1(){}
 }

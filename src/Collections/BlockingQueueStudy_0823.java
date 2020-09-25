@@ -20,6 +20,6 @@ public class BlockingQueueStudy_0823 {
         Lock lock = new ReentrantLock();
         ConcurrentLinkedQueue concurrentLinkedQueue;
     }
-    
+
     static int i;
 }

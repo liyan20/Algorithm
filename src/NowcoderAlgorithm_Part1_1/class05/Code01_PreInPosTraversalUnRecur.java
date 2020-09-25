@@ -15,9 +15,9 @@ public class Code01_PreInPosTraversalUnRecur {
     public static void main(String[] args) {
         Deque<Node> stack = new LinkedList<>();
         System.out.println(stack.pollFirst());
-//        stack.pollFirst();
+//        stack.take();
 //        stack.offerFirst(null);
-//        stack.offerFirst(new Node(0));
+//        stack.offerFirst(new ListNode(0));
     }
     //前序遍历
     //首先，头结点入栈，之后进行三步：

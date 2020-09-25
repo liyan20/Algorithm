@@ -27,16 +27,16 @@
 //    }
 //
 //    public static int relationNum(int n, int m, int[][] arr){
-//        List<Node> list = new ArrayList<>();
+//        List<ListNode> list = new ArrayList<>();
 //        for (int i=0; i<n; i++){
-//            Node newNode = new Node(i+1);  //名字是1开始
+//            ListNode newNode = new ListNode(i+1);  //名字是1开始
 //            list.add(newNode);
 //        }
 //        for (int i=0; i<m; i++){
 //            int fromId = arr[i][0];
 //            int toId = arr[i][1];
-//            Node fromNode = list.get(fromId-1);
-//            Node toNode = list.get(toId-1);
+//            ListNode fromNode = list.get(fromId-1);
+//            ListNode toNode = list.get(toId-1);
 //            fromNode.nexts.add(toNode);
 //        }
 //        for (int i=0; i<list.size(); i++){
@@ -45,25 +45,25 @@
 //
 //    }
 //
-//    public static boolean isRelation(Node n1, Node n2){
+//    public static boolean isRelation(ListNode n1, ListNode n2){
 //        if (n1.id == n2.id){
 //            return true;
 //        }
-//        for (Node temp : n1.nexts){
+//        for (ListNode temp : n1.nexts){
 //            return isRelation(temp, n2);
 //        }
 //        return false;
 //    }
 //
-//    public static void isRelation(List<String> list, Node n1, Node n2){
+//    public static void isRelation(List<String> list, ListNode n1, ListNode n2){
 //
 //    }
 //
-//    public static class Node{
+//    public static class ListNode{
 //        public int id;
-//        public List<Node> nexts;
+//        public List<ListNode> nexts;
 //
-//        public Node(int id) {
+//        public ListNode(int id) {
 //            this.id = id;
 //            this.nexts = new ArrayList<>();
 //        }

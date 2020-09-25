@@ -1,5 +1,7 @@
 package Collections;
 
+import java.io.Serializable;
+
 /**
  * @Author: xianz
  * @Date: 2020/8/31 08:53
@@ -8,10 +10,15 @@ package Collections;
  * @Summary:
  * @TimeConsuming:
  */
-public class Major {
+public class Major implements Cloneable , Serializable {
 
     private String majorName;
     private long majorId;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public Major(String majorName, long majorId) {
         this.majorName = majorName;

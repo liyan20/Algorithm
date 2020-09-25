@@ -58,7 +58,7 @@ public class Test02_0827 {
 
     public void solution(String[] arr){
         List<Integer> list = new ArrayList<>();
-//        Node dummy = new Node(0);
+//        ListNode dummy = new ListNode(0);
         for (int i=0; i<arr.length; i++){
             String[] opArr = arr[i].split(" ");
             int op = Integer.valueOf(opArr[0]);
